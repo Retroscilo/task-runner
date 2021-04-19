@@ -1,0 +1,12 @@
+{
+  "name": "task-runner",
+  "displayName": "task-runner",
+  "expo": {
+    "name": "task-runner",
+    "slug": "task-runner",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
