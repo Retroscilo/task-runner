@@ -24,8 +24,9 @@ function SearchbarProvider ({ children, users }) {
   const [ displayedUsers, setDisplayedUsers ] = useState(users)
 
   const onChangeSearch = value => {
-    const matchingUsers = users.filter(user => user.name.includes(value))
-    setSearchQuery(value)
+    const newValue = value.toLowerCase()
+    const matchingUsers = users.filter(user => user.name.toLowerCase().includes(newValue))
+    setSearchQuery(newValue)
     setDisplayedUsers(matchingUsers)
   }
   
@@ -65,11 +66,11 @@ const PaginationProvider = ({ children, users }) => {
   return (
     <>
       {children(paginatedUsers)}
-      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', height: 30 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: 30 }}>
         {pages && pages.length > 0 && pages.map(i => (
           <span
             key={i}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', width: '100%', textAlign: 'center'}}
             onClick={() => handlePageChange(i)}
           >
             {i}
@@ -92,9 +93,9 @@ const UserListWithSearchAndPagination = () => (
                   <Card.Title
                     key={i}
                     title={user.name}
-                    titleStyle={{ color: 'black', fontSize: 30, marginTop: 25 }}
-                    left={(props) => <Avatar.Text {...props} label={user.initials} size= {67} />}
-                    style={{ border: '1px solid lightgrey', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingLeft: 0, paddingTop: 40, paddingBottom: 40, cursor: 'pointer', background: 'white' }}
+                    titleStyle={{ color: 'black', fontSize: 20, marginTop: 10 }}
+                    left={(props) => <Avatar.Text {...props} label={user.initials} size= {50} />}
+                    style={{ border: '1px solid lightgrey', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 20, paddingBottom: 0, cursor: 'pointer', background: 'white' }}
                   />)
                 )}
               </>
