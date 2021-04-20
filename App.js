@@ -1,28 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/Home'
-
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
+import DetailsScreen from './Screens/Details'
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <PaperProvider>
+    <PaperProvider theme={DefaultTheme}>
       <NavigationContainer >
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="Details" component={DetailsScreen}  />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
