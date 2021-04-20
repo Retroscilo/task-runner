@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { find } from '../lib/user'
 import { ActivityIndicator, Colors } from 'react-native-paper';
-import { Avatar, Card, IconButton } from 'react-native-paper';
+import { Avatar, Card } from 'react-native-paper';
 
 function UserProvider ({ children }) {
   const [ users, setUsers ] = useState(null)
@@ -71,7 +71,7 @@ const PaginationProvider = ({ children, users }) => {
         {pages && pages.length > 0 && pages.map(i => (
           <Text
             key={i}
-            style={{ cursor: 'pointer', width: '100%', textAlign: 'center'}}
+            style={{ width: '100%', textAlign: 'center'}}
             onClick={() => handlePageChange(i)}
           >
             {i}
