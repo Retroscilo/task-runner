@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { findOne } from '../lib/user';
 import { findOne as getTodos } from '../lib/todos'
@@ -54,6 +54,7 @@ const Map = ({}) => {
 
 const Todos = ({ todos }) => {
   const [ freshTodos, setTodos ] = useState(todos)
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
   
   const [ visible, setVisible ] = useState(false)
   const showModal = () => setVisible(true)
@@ -72,6 +73,7 @@ const Todos = ({ todos }) => {
     const t = { ...freshTodos[i], completed: !freshTodos[i].completed }
     freshTodos[i] = t
     setTodos(freshTodos)
+    forceUpdate()
   }
 
   return (
