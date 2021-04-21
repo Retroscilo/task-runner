@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useReducer } from 'react';
-import { Text, View } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { Modal, Portal, IconButton, Switch, TextInput, Button, DataTable, Card } from 'react-native-paper';
 import { findById } from '../../lib/albums'
 import { findByAlbumId } from '../../lib/photos'
@@ -12,7 +12,6 @@ export default ({ userId, navigation }) => {
     async function fetchData() {
       const res = await findById(userId)
       setAlbums(res)
-      console.log(res)
     }
     fetchData()
   }, [])
@@ -21,7 +20,7 @@ export default ({ userId, navigation }) => {
     <Card style={{ margin: 20 }}>
       <Card.Title title={"Albums"} />
       {albums.map((album, i) => {
-        if (!displayAll && i >= 5) return
+        if (!displayAll && i >= 3) return
         return (
         <Card 
           key={i}

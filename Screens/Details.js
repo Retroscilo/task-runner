@@ -4,7 +4,7 @@ import { findOne } from '../lib/user';
 import { findOne as getTodos } from '../lib/todos'
 import { ActivityIndicator, Colors } from 'react-native-paper';
 // Components
-import { Todos, Map, UserInfos, Albums } from '../Components/Details/index'
+import { Todos, Map, UserInfos, Albums, Posts } from '../Components/Details/index'
 
 const UserProvider = ({ children, id }) => {
   const [ user, setUser ] = useState(undefined)
@@ -21,17 +21,16 @@ const UserProvider = ({ children, id }) => {
   return children(user)
 }
 
-export default function DetailsScreen({ route, navigation }) {
-  return (
-    <UserProvider id={route.params.id}>
-      {user => (
-        <>
-          <UserInfos user={user} />
-          <Map />
-          <Todos todos={user.todos} />
-          <Albums userId={user.id} navigation={navigation} />
-        </>
-      )}
-    </UserProvider>
-  );
-}
+export default ({ route, navigation }) => (
+  <UserProvider id={route.params.id}>
+    {user => (
+      <ScrollView>
+        <UserInfos user={user} />
+        <Map />
+        <Todos todos={user.todos} />
+        <Albums userId={user.id} navigation={navigation} />
+        <Posts userId={user.id} navigation={navigation} />
+      </ScrollView>
+    )}
+  </UserProvider>
+);

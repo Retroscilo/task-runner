@@ -110,7 +110,7 @@ const UserListWithSearchAndPagination = ({ navigation }) => (
 )
 
 function HomeScreen({ navigation }) {
-  useEffect(() => navigation.navigate('Details', {id: 1}))
+  // useEffect(() => navigation.navigate('Post', {postId: 1}))
   return (
     <View>
       <UserListWithSearchAndPagination navigation={navigation} />

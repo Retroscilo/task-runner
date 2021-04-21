@@ -9,7 +9,6 @@ export default ({ route }) => {
     async function fetchData () {
       const photos = await findByAlbumId(route.params.albumId)
       setPhotos(photos)
-      console.log(photos)
     }
     fetchData()
   }, [])
@@ -22,7 +21,7 @@ export default ({ route }) => {
   
   if (!photos) return <ActivityIndicator animating={true} color={Colors.red800} />
   return (
-    <View>
+    <ScrollView>
       <Portal>
         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle} style={{ flex: 1 }}>
           <Image source={{ uri: modalPic }} style={{ width: 600, height: 300 }} />
@@ -40,6 +39,6 @@ export default ({ route }) => {
           />
         </Card>
       ))}
-    </View>
+    </ScrollView>
   )
 }

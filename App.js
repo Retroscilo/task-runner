@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/Home'
 import DetailsScreen from './Screens/Details'
 import AlbumScreen from './Screens/Album'
+import PostScreen from './Screens/Post'
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Details" component={DetailsScreen}  />
           <Stack.Screen name="Album" component={AlbumScreen}  />
+          <Stack.Screen name="Post" component={PostScreen}  />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
