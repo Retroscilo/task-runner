@@ -1,5 +1,6 @@
+
 import React, { useState, useReducer } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Modal, Portal, IconButton, Switch, TextInput, Button, DataTable, Card } from 'react-native-paper';
 
 export default ({ todos }) => {
@@ -29,13 +30,14 @@ export default ({ todos }) => {
   }
 
   return (
-    <Card style={{ margin: 20 }}>
+    <Card style={styles.userCard}>
       <Portal>
-        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-          <Text>New Todo</Text>
+        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.userCard}>
+          <Text style={ styles.userCardTitle}>New Todo</Text>
           <TextInput
             onChangeText={text => setText(text)}
             value={text}
+            style={{ backgroundColor: 'rgba(0, 0, 255, .4)',}}
           />
           <Button onPress={addTodo}>Add</Button>
         </Modal>
@@ -43,6 +45,7 @@ export default ({ todos }) => {
       <Card.Title
         title="TODOS"
         right={(props) => <IconButton {...props} icon="plus-circle" onPress={showModal} />}
+        titleStyle={styles.colorWhite}
       />
       <DataTable>
         {freshTodos.map((todo, i) => {
@@ -56,8 +59,36 @@ export default ({ todos }) => {
             </DataTable.Row>
           )
         })}
-        <Button onPress={() => setDisplayAll(!displayAll)}>{!displayAll ? 'Show all' : 'Hide'}</Button>
+        <Button style={styles.colorWhite} onPress={() => setDisplayAll(!displayAll)}>{!displayAll ? 'Show all' : 'Hide'}</Button>
       </DataTable>
     </Card>
   )
 }
+
+const styles = StyleSheet.create({
+  userCard: {
+    boxShadow: '10px 10px 5px rgba(0, 0, 255, .5)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'center',
+    padding: 30,
+    paddingBottom: 0,
+    cursor: 'pointer',
+    backgroundColor: 'rgba(121, 121, 255, 1)',
+    margin: 20,
+    borderRadius: 30,
+  },
+
+  userCardTitle: {
+    color: 'white',
+    fontSize: 20,
+    marginTop: 10,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+
+  colorWhite: {
+    color: 'white',
+  }
+})

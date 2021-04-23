@@ -26,10 +26,10 @@ export default ({ route, navigation }) => (
     {user => (
       <ScrollView>
         <UserInfos user={user} />
-        <Map />
+        <Map users={[user]} init />
         <Todos todos={user.todos} />
-        <Albums userId={user.id} navigation={navigation} />
         <Posts userId={user.id} navigation={navigation} />
+        <Albums userId={user.id} navigation={navigation} />
       </ScrollView>
     )}
   </UserProvider>

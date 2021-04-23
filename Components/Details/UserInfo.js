@@ -1,12 +1,12 @@
 import React from 'react';
 import { DataTable, Card } from 'react-native-paper';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default ({ user }) => (
-  <Card elevation={0} style={{ margin: 20 }}>
+  <Card elevation={0} style={ styles.userCard }>
     <Card.Title
       title={user.name}
-      titleStyle={{ color: 'black', fontSize: 20, marginTop: 10 }}
-      style={{ border: '1px solid lightgrey', paddingBottom: 0, background: 'white' }}
+      titleStyle={ styles.userCardTitle }
     />
     <DataTable >
       <DataTable.Row>
@@ -24,3 +24,31 @@ export default ({ user }) => (
     </DataTable>
   </Card>
 )
+
+const styles = StyleSheet.create({
+  userCard: {
+    boxShadow: '10px 10px 5px rgba(0, 0, 255, .5)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
+    justifyContent: 'center',
+    padding: 30,
+    paddingBottom: 0,
+    cursor: 'pointer',
+    backgroundColor: 'rgba(0, 0, 255, .4)',
+    margin: 20,
+    borderRadius: 30,
+  },
+
+  userCardTitle: {
+    color: 'white',
+    fontSize: 20,
+    marginTop: 10,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+
+  colorWhite: {
+    color: 'white',
+  }
+})

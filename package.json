@@ -15,22 +15,25 @@
     "expo-splash-screen": "~0.10.2",
     "expo-status-bar": "~1.0.4",
     "expo-updates": "~0.5.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "latest",
+    "react-dom": "latest",
     "react-native": "^0.64.0",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-maps": "0.27.1",
     "react-native-paper": "^4.7.2",
     "react-native-reanimated": "~2.1.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.0.0",
     "react-native-unimodules": "~0.13.3",
-    "react-native-web": "^0.15.7"
+    "react-native-web": "^0.15.7",
+    "react-native-web-maps": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@expo/webpack-config": "^0.12.68",
     "babel-jest": "~25.2.6",
     "jest": "~25.2.6",
-    "react-test-renderer": "~16.13.1"
+    "react-test-renderer": "latest"
   },
   "jest": {
     "preset": "react-native"
